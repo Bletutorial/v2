@@ -61,10 +61,10 @@ class inject(object):
             socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             socket_server.bind((self.inject_host, self.inject_port))
             socket_server.listen(1)
-            frontend_domains = open(real_path('/config.ini')).readlines()
+            frontend_domains = open(real_path('/config')).readlines()
             frontend_domains = filter_array(frontend_domains)
             if len(frontend_domains) == 0:
-                self.log('Frontend Domains not found. Please check SimpleServer.ini.', color='[Y1]')
+                self.log('Frontend Domains not found. Please check SimpleServer.', color='[Y1]')
                 return
             self.log('!'.format(self.inject_host, self.inject_port))
             while True:
